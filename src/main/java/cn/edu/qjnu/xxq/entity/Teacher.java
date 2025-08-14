@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yourname
@@ -79,13 +79,9 @@ public class Teacher implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime time;
 
-    private String position; // 岗位字段
+    // 已删除所有与 position 相关的代码（字段和 setPosition 方法）
 
-    public String getPosition() {
-        return position;
-    }
-
-
+    // 以下是自动生成的 getter/setter 方法（保持不变）
     public Long getId() {
         return id;
     }
@@ -165,11 +161,4 @@ public class Teacher implements Serializable {
     public void setTime(LocalDateTime time) {
         this.time = time;
     }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
 }
-
-
-

@@ -86,17 +86,17 @@ public class TeacherController {
 
     /**
      * 添加教师信息
-     * @param teacher 教师实体（需包含姓名和岗位信息）
+     * @param teacher 教师实体（需包含姓名信息）
      * @return 操作结果
      */
     @RequestMapping("/addTeacher")
     public ElResult<Teacher> addTeacher(Teacher teacher) {
-        if (!StringUtils.hasText(teacher.getName()) || !StringUtils.hasText(teacher.getPosition())) {
-            return ElResult.error("教师姓名和岗位不能为空");
+        // 只校验姓名不为空（移除岗位校验）
+        if (!StringUtils.hasText(teacher.getName())) {
+            return ElResult.error("教师姓名不能为空");
         }
-//        修改数据
         teacherService.save(teacher);
-        log.info("新增教师成功：{}（岗位：{}）", teacher.getName(), teacher.getPosition());
+        log.info("新增教师成功：{}", teacher.getName());
         return ElResult.ok();
     }
 
